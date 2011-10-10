@@ -7,24 +7,22 @@
 //
 
 #import "SearcherAppDelegate.h"
-
 #import "SearcherViewController.h"
+#import "RootViewController.h"
 
 @implementation SearcherAppDelegate
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
+@synthesize window;
+@synthesize viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[SearcherViewController alloc] initWithNibName:@"SearcherViewController_iPhone" bundle:nil]; 
-    } else {
-        self.viewController = [[SearcherViewController alloc] initWithNibName:@"SearcherViewController_iPad" bundle:nil]; 
-    }
-    self.window.rootViewController = self.viewController;
+    RootViewController *controller = [[RootViewController alloc] init];
+    controller.title = @"Searcher";
+    UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:controller];
+    aNavController.navigationBar.tintColor = [UIColor darkGrayColor];
+    self.viewController = aNavController;
+    [self.window addSubview:self.viewController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -1,5 +1,5 @@
 //
-//  SearcherViewController.h
+//  RootViewController.h
 //  Searcher
 //
 //  Created by Martin Goffan on 8/29/11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearcherViewController : UIViewController
+@interface RootViewController : UITableViewController
 
 @end
